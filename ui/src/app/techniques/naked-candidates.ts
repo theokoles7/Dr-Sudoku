@@ -102,17 +102,15 @@ export class NakedCandidates {
   }
 
   static nakedTriplePuzzle(blanks: Array<Cell>): void{
-    for(let i = 0; i < blanks.length - 2; i++){
+    for(let i = 0; i < blanks.length; i++){
       let ipm = blanks[i].pencilmarks;
       if(ipm.length === 3){
-        console.log("\tHit 1 @ " + i + " with " + ipm);
         for(let j = 0; j < blanks.length - 1; j++){
           let jpm = blanks[j].pencilmarks;
           if(
             (j !== i) && (jpm.length === 2
             && this.matches(ipm, jpm, 2) || (jpm.length === 3 && this.matches(ipm, jpm, 3)))
           ){
-            console.log("\t\tHit 2 @ " + j + " with " + jpm);
             for(let k = 0; k < blanks.length; k++){
               let kpm = blanks[k].pencilmarks;
               if(
@@ -120,7 +118,6 @@ export class NakedCandidates {
                 && this.matches(ipm, kpm, 2) && this.matches(jpm, kpm, 1)
                 || (kpm.length === 3 && this.matches(ipm, kpm, 3)))
               ){
-                console.log("\t\t\tHit 3 @ " + k + " with " + kpm);
                 blanks[i].hilite();
                 blanks[j].hilite();
                 blanks[k].hilite();
@@ -128,6 +125,92 @@ export class NakedCandidates {
                   if(c != i && c != j && c != k){
                     for(let n of ipm){
                       blanks[c].erase(n);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //==============================================================
+  // Quads
+  //==============================================================
+
+  static nakedQuad(p: Puzzle): Puzzle{
+    for(let r = 0; r < p.grid.length; r++){
+      this.nakedQuadRow(p, r);
+      for(let c = 0; c < p.grid.length; c++){
+        this.nakedQuadCol(p, c);
+        this.nakedQuadBox(p, r, c);
+      }
+    }
+    return p;
+  }
+
+  static nakedQuadRow(p: Puzzle, r: number): void{
+    console.log("Running naked Quad on row " + r);
+    this.nakedQuadPuzzle(p.getBlanksRow(r));
+  }
+
+  static nakedQuadCol(p: Puzzle, c: number): void{
+    console.log("Running naked Quad on column " + c);
+    this.nakedQuadPuzzle(p.getBlanksCol(c));
+  }
+
+  static nakedQuadBox(p: Puzzle, r: number, c: number): void{
+    console.log("Running naked Quad from row " + r + ", col " + c);
+    this.nakedQuadPuzzle(p.getBlanksBox(r, c));
+  }
+
+  static nakedQuadPuzzle(blanks: Array<Cell>): void{
+    for(let i = 0; i < blanks.length; i++){
+      let ipm = blanks[i].pencilmarks;
+      if(ipm.length === 4){
+        console.log("\tHit 1 @ " + i + " with " + ipm);
+        for(let j = 0; j < blanks.length; j++){
+          let jpm = blanks[j].pencilmarks;
+          if(
+            (j != i) &&
+            ((jpm.length === 2 && this.matches(ipm, jpm, 2))
+            || (jpm.length === 3 && this.matches(ipm, jpm, 3))
+            || (jpm.length === 4 && this.matches(ipm, jpm, 4)))
+          ){
+            console.log("\t\tHit 2 @ " + j + " with " + jpm);
+            for(let k = 0; k < blanks.length; k++){
+              let kpm = blanks[k].pencilmarks;
+              if(
+                (k != i && k != j) &&
+                ((kpm.length === 2 && this.matches(ipm, kpm, 2) && this.matches(jpm, kpm, 1))
+                || (kpm.length === 3 && this.matches(ipm, kpm, 3) && this.matches(jpm, kpm, 2))
+                || (kpm.length === 4 && this.matches(ipm, kpm, 4) && this.matches(jpm, kpm, 3)))
+              ){
+                console.log("\t\t\tHit 3 @ " + k + " with " + kpm);
+                for(let l = 0; l < blanks.length; l++){
+                  let lpm = blanks[l].pencilmarks;
+                  if(
+                    (l != i && l != j && l != k)
+                    &&
+                    (
+                      (lpm.length === 2 && this.matches(ipm, lpm, 2) && this.matches(jpm, lpm, 1) && this.matches(kpm, lpm, 1))
+                      || (lpm.length === 3 && this.matches(ipm, lpm, 3) && this.matches(jpm, lpm, 2) && this.matches(kpm, lpm, 2))
+                      || (lpm.length === 4 && this.matches(ipm, lpm, 4) && this.matches(jpm, lpm, 3) && this.matches(kpm, lpm, 3))
+                    )
+                  ){
+                    console.log("\t\t\t\tHit 4 @ " + l + " with " + lpm);
+                    blanks[i].hilite();
+                    blanks[j].hilite();
+                    blanks[k].hilite();
+                    blanks[l].hilite();
+                    for(let c = 0; c < blanks.length; c++){
+                      if(c != i && c != j && c != k && c != l){
+                        for(let n of ipm){
+                          blanks[c].erase(n);
+                        }
+                      }
                     }
                   }
                 }

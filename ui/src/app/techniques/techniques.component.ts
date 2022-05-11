@@ -16,6 +16,7 @@ export class TechniquesComponent implements OnInit {
   @Output() nakedSingle: EventEmitter<void> = new EventEmitter();
   @Output() nakedPair: EventEmitter<void> = new EventEmitter();
   @Output() nakedTriple: EventEmitter<void> = new EventEmitter();
+  @Output() nakedQuad: EventEmitter<void> = new EventEmitter();
 
   constructor() { }
 
@@ -36,6 +37,10 @@ export class TechniquesComponent implements OnInit {
 
   emitNakedTriple(): void{
     this.nakedTriple.emit();
+  }
+
+  emitNakedQuad(): void{
+    this.nakedQuad.emit();
   }
 
 }

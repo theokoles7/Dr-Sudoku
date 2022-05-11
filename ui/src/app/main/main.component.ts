@@ -69,7 +69,7 @@ export class MainComponent implements OnInit {
 
   newBlankPuzzle(): void{
     console.log("Setting up blank puzzle");
-    this.p = new Puzzle(PuzzleBank.bank[5][3]);
+    this.p = new Puzzle(PuzzleBank.bank[6][0]);
     console.log("Blank puzzle ready for input");
   }
 
@@ -87,13 +87,21 @@ export class MainComponent implements OnInit {
   }
 
   runNakedPair(): void{
+    //this.p = new Puzzle(PuzzleBank.bank[7][0]); // For testing
     this.p.markPuzzle();
     this.p = NakedCandidates.nakedPair(this.grid.puzzle);
   }
 
   runNakedTriple(): void{
+    //this.p = new Puzzle(PuzzleBank.bank[7][1]); // For testing
     this.p.markPuzzle();
     this.p = NakedCandidates.nakedTriple(this.grid.puzzle);
+  }
+
+  runNakedQuad(): void{
+    //this.p = new Puzzle(PuzzleBank.bank[7][2]); // For testing
+    this.p.markPuzzle();
+    this.p = NakedCandidates.nakedQuad(this.grid.puzzle);
   }
 
   updateConsidered(n: number){
