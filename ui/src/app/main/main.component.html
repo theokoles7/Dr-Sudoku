@@ -8,11 +8,11 @@
       (backtrack)="backtrack()"
       (enhanced)="enhanced()"
       (human)="human()"
-      (mark)="markPuzzle()"
+      (mark)="p.markPuzzle()"
       (tempo)="emitTempo($event)"
       (new)="getPuzzle()"
-      (play)="playAlgo()"
-      (pause)="pauseAlgo()"
+      (play)="grid.play()"
+      (pause)="grid.pause()"
       (custom)="userInput()"
       ></ds-controls>
   
@@ -34,6 +34,7 @@
   
     <ds-techniques
       (singleBlank)="runSingleBlank()"
+      (nakedSingle)="runNakedSingle()"
       (nakedPair)="runNakedPair()"
       [considered]="considered"
       [guesses]="guesses"

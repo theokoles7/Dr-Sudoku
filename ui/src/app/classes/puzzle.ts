@@ -2,6 +2,7 @@ import { Cell } from "./cell";
 
 export class Puzzle {
   public grid: Array<Array<Cell>> = [[], [], [], [], [], [], [], [], []];
+  private marked: boolean = false;
 
   constructor(g: Array<Array<number>>){
     for(let r = 0; r < g.length; r++){
@@ -258,13 +259,64 @@ export class Puzzle {
    * @see markCell()
    */
   markPuzzle(): void{
-    for(let r = 0; r < this.grid.length; r++){
-      for(let c = 0; c < this.grid.length; c++){
-        if(this.grid[r][c].value === 0){
-          this.markCell(r, c);
+    if(!this.marked){
+      for(let r = 0; r < this.grid.length; r++){
+        for(let c = 0; c < this.grid.length; c++){
+          if(this.grid[r][c].value === 0){
+            this.markCell(r, c);
+          }
         }
       }
     }
+    this.marked = true;
+  }
+
+  /**
+   * Erases all instances of n in pencil marks of cells in row
+   * @param n [number] Pencil mark to erase
+   * @param r [number] Row number
+   */
+  eraseNRow(n: number, r: number): void{
+    for(let cell of this.grid[r]){
+      cell.erase(n);
+    }
+  }
+
+  /**
+   * Erases all instances of n in pencil marks of cells in column
+   * @param n [number] Pencil mark to erase
+   * @param c [number] Column number
+   */
+  eraseNCol(n: number, c: number): void{
+    for(let row of this.grid){
+      row[c].erase(n);
+    }
+  }
+
+  /**
+   * Erases all instances of n in pencil marks of cells in box
+   * @param n [number] Pencil mark to erase
+   * @param r [number] Row number
+   * @param c [number] Column number
+   */
+   eraseNBox(n: number, r: number, c: number): void{
+    for(let i = r - (r % 3); i <= (r - (r % 3)) + 2; i++){
+      for(let j = c - (c % 3); j <= (c - (c % 3)) + 2; j++){
+        this.grid[i][j].erase(n);
+      }
+    }
+  }
+
+  /**
+   * Erases all instances of n in pencil marks of surrounding cells
+   * @param n [number] Pencil mark to erase
+   * @param r [number] Row number
+   * @param c [number] Column number
+   */
+  eraseNAdj(n: number, r: number, c: number): void{
+    this.eraseNRow(n, r);
+    this.eraseNCol(n, c);
+    this.eraseNBox(n, r, c);
   }
 
   //==============================================================

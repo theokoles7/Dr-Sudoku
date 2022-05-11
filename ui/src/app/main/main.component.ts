@@ -75,29 +75,20 @@ export class MainComponent implements OnInit {
     console.log("Blank puzzle ready for input");
   }
 
-  markPuzzle(): void{
-    this.p.markPuzzle();
-  }
-
   emitTempo(n: number){
     this.grid.setTempo(n);
-  }
-
-  playAlgo(): void{
-    this.grid.play();
-  }
-
-  pauseAlgo(): void{
-    this.grid.pause();
   }
 
   runSingleBlank(): void{
     SingleBlank.singleBlank(this.p);
   }
 
+  runNakedSingle(): void{
+    this.p = NakedCandidates.nakedSingle(this.grid.puzzle);
+  }
+
   runNakedPair(): void{
-    this.p.markPuzzle();
-    NakedCandidates.nakedPairPuzzle(this.p);
+    this.p = NakedCandidates.nakedPair(this.grid.puzzle);
   }
 
   updateConsidered(n: number){
