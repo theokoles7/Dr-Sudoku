@@ -24,9 +24,7 @@ export class MainComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(Date.now());
-  }
+  ngOnInit(): void {}
 
   backtrack(): void{
     this.time_i = Date.now();
@@ -84,11 +82,18 @@ export class MainComponent implements OnInit {
   }
 
   runNakedSingle(): void{
+    this.p.markPuzzle();
     this.p = NakedCandidates.nakedSingle(this.grid.puzzle);
   }
 
   runNakedPair(): void{
+    this.p.markPuzzle();
     this.p = NakedCandidates.nakedPair(this.grid.puzzle);
+  }
+
+  runNakedTriple(): void{
+    this.p.markPuzzle();
+    this.p = NakedCandidates.nakedTriple(this.grid.puzzle);
   }
 
   updateConsidered(n: number){
