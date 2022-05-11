@@ -13,7 +13,9 @@ export class Cell {
   }
 
   erase(n: number){
-    delete this.pencilmarks[this.pencilmarks.indexOf(n)];
+    if(this.pencilmarks.includes(n)){
+      this.pencilmarks.splice(this.pencilmarks.indexOf(n), 1);
+    }
   }
 
   hilite(): void{
