@@ -22,6 +22,7 @@ export class GridComponent implements OnInit {
   @Output() considered: EventEmitter<number> = new EventEmitter();
   @Output() guess: EventEmitter<number> = new EventEmitter();
   @Output() mistake: EventEmitter<number> = new EventEmitter();
+  @Output() new_time: EventEmitter<number> = new EventEmitter();
 
   constructor() { }
 
@@ -55,6 +56,7 @@ export class GridComponent implements OnInit {
           for(let n = 1; n <= this.puzzle.grid.length; n++){
             this.considered.emit(1);
             await this.delay(100 - this.tempo);
+            this.new_time.emit(Date.now());
             if(this.puzzle.numValid(n, r, c)){
               while(!this.algo_play){await this.delay(500);}
               this.puzzle.grid[r][c].solved = true;
@@ -93,6 +95,7 @@ export class GridComponent implements OnInit {
           for(let n of this.puzzle.grid[r][c].pencilmarks){
             this.considered.emit(1);
             await this.delay(100 - this.tempo);
+            this.new_time.emit(Date.now());
             if(this.puzzle.numValid(n, r, c)){
               while(!this.algo_play){await this.delay(500);}
               this.puzzle.grid[r][c].solved = true;
@@ -128,6 +131,7 @@ export class GridComponent implements OnInit {
         this.r_current = r;
         for(let c = 0; c < this.puzzle.grid.length; c++){
           this.c_current = c;
+          this.new_time.emit(Date.now());
           if(this.puzzle.grid[r][c].value === 0){
 
             if(SingleBlank.singleBlankRow(this.puzzle, r)){
@@ -248,4 +252,6 @@ export class GridComponent implements OnInit {
   customOff(): void{
     this.user_puzzle = false;
   }
+
+
 }

@@ -16,24 +16,31 @@ export class MainComponent implements OnInit {
   considered: number = 0;
   guesses: number = 0;
   backtracks: number = 0;
+  time_i = 0;
+  time = "00:00:000";
 
   @ViewChild(GridComponent) grid!: GridComponent;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(Date.now());
+  }
 
   backtrack(): void{
+    this.time_i = Date.now();
     this.grid.play();
     this.grid.backtrack();
   }
 
   enhanced(): void{
+    this.time_i = Date.now();
     this.grid.play();
     this.grid.backtrack_enhanced();
   }
 
   human(): void{
+    this.time_i = Date.now();
     this.grid.play();
     this.grid.backtrack_human();
   }
@@ -44,13 +51,14 @@ export class MainComponent implements OnInit {
 
   newPuzzle(){
     console.log("Grabbing new puzzle");
-    this.considered = 0;
-    this.guesses = 0;
-    this.backtracks = 0;
     if(this.grid){
       this.grid.customOff();
       this.grid.pause();
     }
+    this.considered = 0;
+    this.guesses = 0;
+    this.backtracks = 0;
+    this.time = "00:00:000";
     return new Puzzle(
         PuzzleBank.bank[
           Math.floor(Math.random() * 6)
@@ -96,6 +104,13 @@ export class MainComponent implements OnInit {
 
   updateBacktracks(n: number){
     this.backtracks += n;
+  }
+
+  updateTime(n: number){
+    this.time = formatDate(
+      (n - this.time_i), 'mm:ss', "en-US"
+      ) + ":" + ((n - this.time_i) % 1000);
+      
   }
 
   userInput(): void{

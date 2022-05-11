@@ -25,6 +25,7 @@
       (considered)="updateConsidered($event)"
       (guess)="updateGuesses($event)"
       (mistake)="updateBacktracks($event)"
+      (new_time)="updateTime($event)"
       ></ds-grid>
   
   </div>
@@ -36,6 +37,7 @@
       [considered]="considered"
       [guesses]="guesses"
       [backtracks]="backtracks"
+      [time]="time"
     ></ds-techniques>
   
   </div>
