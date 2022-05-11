@@ -46,7 +46,6 @@ export class GridComponent implements OnInit {
    * @returns [boolean] True at completion, False at failure
    */
   async backtrack(): Promise<boolean>{
-    console.log("Running backtrack");
     this.customOff();
     for(let r = 0; r < this.puzzle.grid.length; r++){
       this.r_current = r;
@@ -84,7 +83,6 @@ export class GridComponent implements OnInit {
    * @returns [boolean] True at completion, False at failure
    */
    async backtrack_enhanced(): Promise<boolean>{
-    console.log("Running enhanced backtrack");
     this.customOff();
     this.puzzle.markPuzzle();
     for(let r = 0; r < this.puzzle.grid.length; r++){
@@ -123,7 +121,6 @@ export class GridComponent implements OnInit {
    * @returns [boolean] True at completion, False at failure
    */
   async backtrack_human(): Promise<boolean>{
-    console.log("Running human backtrack");
     let n!: number;
       this.customOff();
       this.puzzle.markPuzzle();
@@ -142,7 +139,6 @@ export class GridComponent implements OnInit {
                 while(!this.algo_play){await this.delay(500);}
                 this.puzzle.grid[r][c].solved = true;
                 this.puzzle.grid[r][c].value = n;
-                console.log("[" + r + ", " + "] = " + n + " (Single blank)");
                 this.guess.emit(1);
                 if(await this.backtrack_human()){
                   return true;
@@ -161,7 +157,6 @@ export class GridComponent implements OnInit {
                 while(!this.algo_play){await this.delay(500);}
                 this.puzzle.grid[r][c].solved = true;
                 this.puzzle.grid[r][c].value = n;
-                console.log("[" + r + ", " + "] = " + n + " (Single blank)");
                 this.guess.emit(1);
                 if(await this.backtrack_human()){
                   return true;
@@ -180,7 +175,6 @@ export class GridComponent implements OnInit {
                 while(!this.algo_play){await this.delay(500);}
                 this.puzzle.grid[r][c].solved = true;
                 this.puzzle.grid[r][c].value = n;
-                console.log("[" + r + ", " + "] = " + n + " (Single blank)");
                 this.guess.emit(1);
                 if(await this.backtrack_human()){
                   return true;
