@@ -4,6 +4,7 @@ import { Puzzle } from '../classes/puzzle';
 import { PuzzleBank } from '../classes/puzzlebank';
 import { SingleBlank } from '../techniques/single-blank';
 import { formatDate } from '@angular/common';
+import { NakedCandidates } from '../techniques/naked-candidates';
 
 @Component({
   selector: 'ds-main',
@@ -92,6 +93,11 @@ export class MainComponent implements OnInit {
 
   runSingleBlank(): void{
     SingleBlank.singleBlank(this.p);
+  }
+
+  runNakedPair(): void{
+    this.p.markPuzzle();
+    NakedCandidates.nakedPairPuzzle(this.p);
   }
 
   updateConsidered(n: number){

@@ -13,6 +13,7 @@ export class TechniquesComponent implements OnInit {
   @Input() time: string = "00:00:000";
   
   @Output() singleBlank: EventEmitter<void> = new EventEmitter();
+  @Output() nakedPair: EventEmitter<void> = new EventEmitter();
 
   constructor() { }
 
@@ -21,6 +22,10 @@ export class TechniquesComponent implements OnInit {
 
   emitSingleBlank(): void{
     this.singleBlank.emit();
+  }
+
+  emitNakedPair(): void{
+    this.nakedPair.emit();
   }
 
 }

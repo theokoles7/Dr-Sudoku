@@ -57,6 +57,53 @@ export class Puzzle {
     return blanks;
   }
 
+  /**
+   * Collects all blank cells in row
+   * @param r [number] Row number
+   * @returns [Array<Cell>] Blank cells in row
+   */
+  getBlanksRow(r: number): Array<Cell>{
+    let blanks: Array<Cell> = [];
+    for(let cell of this.grid[r]){
+      if(cell.value === 0){
+        blanks.push(cell);
+      }
+    }
+    return blanks;
+  }
+
+  /**
+   * Collects all blank cells in column
+   * @param c [number] Column number
+   * @returns [Array<Cell>] Blank cells in column
+   */
+  getBlanksCol(c: number): Array<Cell>{
+    let blanks: Array<Cell> = [];
+    for(let row of this.grid){
+      if(row[c].value === 0){
+        blanks.push(row[c]);
+      }
+    }
+    return blanks;
+  }
+
+  /**
+   * Collects all blank cells in box
+   * @param r [number] Row component of cell coordinate
+   * @param c [number] Column component of cell coordinate
+   * @returns [Array<Cell>] Blank cells in box
+   */
+  getBlanksBox(r: number, c: number){
+    let blanks: Array<Cell> = [];
+    for(let i = r - (r % 3); i <= (r - (r % 3)) + 2; i++){
+      for(let j = c - (c % 3); j <= (c - (c % 3)) + 2; j++){
+        if(this.grid[i][j].value === 0){
+          blanks.push(this.grid[i][j]);}
+      }
+    }
+    return blanks;
+  }
+
   //==============================================================
   // Candidate Validation
   //==============================================================
