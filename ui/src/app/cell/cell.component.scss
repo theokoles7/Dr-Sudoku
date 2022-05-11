@@ -1,0 +1,65 @@
+@import "../../styles.scss";
+
+input{
+  -moz-appearance: textfield;
+  max-width: 2em;
+  height: 2em;
+  font-size: 2.15em;
+  margin: .125em 0 0 .1em;
+  text-align: center;
+  border: none;
+  background-color: transparent;
+  font-family: Tech;
+  color: $silver;
+  
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &:focus{
+    outline: none;
+  }
+
+  &.error{
+    background-color: rgba($red, .25);
+    box-shadow: 0 0 10px 10px rgba($red, .25);
+  }
+}
+
+h1.cell-value{
+  text-align: center;
+  width: auto;
+  height: 100%;
+  font-family: Tech;
+  color: $silver;
+}
+
+div.pencilmarks{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 3%;
+
+  div.mark-row{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 33.333%;
+
+    div.mark{
+      width: 33.333%;
+      height: 33.333%;
+      display: table-cell;
+
+      h3.pm-value{
+        text-align: center;
+        font-family: Tech;
+        color: $silver;
+        margin: 0;
+      }
+    }
+  }
+}

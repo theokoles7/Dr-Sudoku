@@ -1,0 +1,22 @@
+<div class="outer">
+
+  <div class="row r{{r}}" *ngFor="let row of puzzle.grid; let r = index">
+
+    <div class="cell c{{c}}"*ngFor="let cell of row; let c = index" 
+      [ngClass]="isCurrent(r, c) ? 'current' : ''"
+      [ngClass]="cell.solved ? 'solved' : ''"
+      [ngClass]="cell.highlight ? 'hilite' : ''"
+    >
+
+      <ds-cell 
+        [cell]="cell"
+        [row]="r"
+        [col]="c"
+        [custom]="user_puzzle"
+        ></ds-cell>
+
+    </div>
+
+  </div>
+
+</div>

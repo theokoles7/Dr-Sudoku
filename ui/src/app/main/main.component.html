@@ -1,0 +1,43 @@
+<div class="backdrop"></div>
+
+<div class="outer">
+
+  <div class="left">
+  
+    <ds-controls
+      (backtrack)="backtrack()"
+      (enhanced)="enhanced()"
+      (human)="human()"
+      (mark)="markPuzzle()"
+      (tempo)="emitTempo($event)"
+      (new)="getPuzzle()"
+      (play)="playAlgo()"
+      (pause)="pauseAlgo()"
+      (custom)="userInput()"
+      ></ds-controls>
+  
+  </div>
+  
+  <div class="middle">
+  
+    <ds-grid 
+      [puzzle]="p"
+      (considered)="updateConsidered($event)"
+      (guess)="updateGuesses($event)"
+      (mistake)="updateBacktracks($event)"
+      ></ds-grid>
+  
+  </div>
+  
+  <div class="right">
+  
+    <ds-techniques
+      (singleBlank)="runSingleBlank()"
+      [considered]="considered"
+      [guesses]="guesses"
+      [backtracks]="backtracks"
+    ></ds-techniques>
+  
+  </div>
+
+</div>
