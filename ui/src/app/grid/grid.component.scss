@@ -34,8 +34,7 @@ div.outer{
       }
 
       &.hilite{
-        background-color: rgba($blue, .25);
-        box-shadow: 0 0 10px 10px rgba($blue, .25);
+        animation: highlight 3s linear 0s 1 normal none;
       }
     }
 
@@ -54,5 +53,48 @@ div.outer{
 
   div.r6{
     margin-top: 1em;
+  }
+}
+
+@keyframes highlight{
+  0%{
+    background-color: rgba($blue, .25);
+    box-shadow: 0 0 10px 10px rgba($blue, .25);
+  }
+  10%{
+    background-color: transparent;
+    box-shadow: none;
+  }
+  20%{
+    background-color: rgba($blue, .25);
+    box-shadow: 0 0 10px 10px rgba($blue, .25);
+  }
+  30%{
+    background-color: transparent;
+    box-shadow: none;
+  }
+  40%{
+    background-color: rgba($blue, .25);
+    box-shadow: 0 0 10px 10px rgba($blue, .25);
+  }
+  50%{
+    background-color: transparent;
+    box-shadow: none;
+  }
+  60%{
+    background-color: rgba($blue, .25);
+    box-shadow: 0 0 10px 10px rgba($blue, .25);
+  }
+  70%{
+    background-color: transparent;
+    box-shadow: none;
+  }
+  80%{
+    background-color: rgba($blue, .25);
+    box-shadow: 0 0 10px 10px rgba($blue, .25);
+  }
+  90%{
+    background-color: transparent;
+    box-shadow: none;
   }
 }
