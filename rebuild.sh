@@ -1,15 +1,13 @@
 #!/bin/bash
 
 echo "Pulling from master..."
-cd "/home/theokoles/Projects/Custom Apps/Dr-Sudoku/" &
-wait
 echo "PWD: $(pwd)"
 
 git pull origin master &
 wait
 
 echo "Building project..."
-cd "./ui/" &
+./ui/ &
 wait
 echo "PWD: $(pwd)"
 
