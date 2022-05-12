@@ -51,7 +51,7 @@ function push(){
 
 pull
 build
-copy
+copyFile
 commit
 push
 
