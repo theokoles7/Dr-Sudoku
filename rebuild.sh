@@ -6,13 +6,7 @@ echo "PWD: $(pwd)"
 git pull origin master &
 wait
 
-echo "Building project..."
-. cd-./ui/ &
-wait
-echo "PWD: $(pwd)"
-
-ng build --output-path ../docs --base-href /Dr-Sudoku/ &
-wait
+build
 
 echo "Copying index.html and renaming to 404.html..."
 cd "../docs/" &
@@ -37,3 +31,12 @@ git push origin prod &
 wait
 
 echo "Script complete!"
+
+functoin build(){
+  echo "Executing build..."
+  cd ./ui/
+  echo "\tNavigated to ./ui"
+  ng build --output-path ../docs --base-href /Dr-Sudoku/ &
+  wait
+  echo "\tBuild complete!"
+}
