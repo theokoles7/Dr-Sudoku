@@ -45,7 +45,7 @@ function push(){
   echo "Pushing to repository..."
   cd "/home/theokoles/Projects/Custom Apps/Dr-Sudoku/"
   echo "=> Navigated to $(pwd)"
-  git push origin master & wait
+  git push origin prod & wait
   echo "=> Push complete! -----------------------------"
 }
 
