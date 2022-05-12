@@ -7,6 +7,7 @@ git pull origin master & wait
 
 echo "Building project..."
 cd "/home/theokoles/Projects/Custom Apps/Dr-Sudoku/ui" & wait
+echo "PWD: $(pwd)"
 
 ng build --output-path ../docs --base-href /Dr-Sudoku/ & wait
 
