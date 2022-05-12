@@ -9,7 +9,7 @@ git pull origin master &
 wait
 
 echo "Building project..."
-cd "/home/theokoles/Projects/Custom Apps/Dr-Sudoku/ui/" &
+cd "./ui/" &
 wait
 echo "PWD: $(pwd)"
 
@@ -17,7 +17,7 @@ ng build --output-path ../docs --base-href /Dr-Sudoku/ &
 wait
 
 echo "Copying index.html and renaming to 404.html..."
-cd "/home/theokoles/Projects/Custom Apps/Dr-Sudoku/docs/" &
+cd "../docs/" &
 wait
 echo "PWD: $(pwd)"
 
@@ -25,7 +25,7 @@ cp index.html 404.html &
 wait
 
 echo "Pushing to repo..."
-cd "/home/theokoles/Projects/Custom Apps/Dr-Sudoku/" &
+cd ".." &
 wait
 echo "PWD: $(pwd)"
 
