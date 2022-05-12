@@ -7,7 +7,7 @@ git pull origin master &
 wait
 
 echo "Building project..."
-./ui/ &
+. cd-./ui/ &
 wait
 echo "PWD: $(pwd)"
 
