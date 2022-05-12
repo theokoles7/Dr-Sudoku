@@ -1,27 +1,27 @@
 #!/bin/bash
 
 echo "Pulling from master..."
-cd /home/theokoles/Projects/Custom Apps/Dr-Sudoku
+cd /home/theokoles/Projects/Custom Apps/Dr-Sudoku & wait
 
-git pull origin master
+git pull origin master & wait
 
 echo "Building project..."
-cd /home/theokoles/Projects/Custom Apps/Dr-Sudoku/ui
+cd /home/theokoles/Projects/Custom Apps/Dr-Sudoku/ui & wait
 
-ng build --output-path ../docs --base-href /Dr-Sudoku/
+ng build --output-path ../docs --base-href /Dr-Sudoku/ & wait
 
 echo "Copying index.html and renaming to 404.html..."
-cd /home/theokoles/Projects/Custom Apps/Dr-Sudoku/docs
+cd /home/theokoles/Projects/Custom Apps/Dr-Sudoku/docs & wait
 
-cp index.html 404.html
+cp index.html 404.html & wait
 
 echo "Pushing to repo..."
-cd /home/theokoles/Projects/Custom Apps/Dr-Sudoku
+cd /home/theokoles/Projects/Custom Apps/Dr-Sudoku & wait
 
-git add .
+git add . & wait
 
-git commit -m "Build $(date)"
+git commit -m "Build $(date)" & wait
 
-git push origin prod
+git push origin prod & wait
 
 echo "Script complete!"
