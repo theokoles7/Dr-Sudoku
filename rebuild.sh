@@ -32,7 +32,7 @@ wait
 
 echo "Script complete!"
 
-functoin build(){
+function build(){
   echo "Executing build..."
   cd ./ui/
   echo "\tNavigated to ./ui"
