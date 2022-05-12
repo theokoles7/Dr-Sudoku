@@ -12,6 +12,10 @@ export class Cell {
     this.pencilmarks.push(n);
   }
 
+  hasMark(n: number): boolean{
+    return this.pencilmarks.includes(n);
+  }
+
   erase(n: number){
     if(this.pencilmarks.includes(n)){
       this.pencilmarks.splice(this.pencilmarks.indexOf(n), 1);

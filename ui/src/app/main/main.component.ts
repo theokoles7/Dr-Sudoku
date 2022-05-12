@@ -5,6 +5,7 @@ import { PuzzleBank } from '../classes/puzzlebank';
 import { SingleBlank } from '../techniques/single-blank';
 import { formatDate } from '@angular/common';
 import { NakedCandidates } from '../techniques/naked-candidates';
+import { XWing } from '../techniques/x-wing';
 
 @Component({
   selector: 'ds-main',
@@ -102,6 +103,13 @@ export class MainComponent implements OnInit {
     //this.p = new Puzzle(PuzzleBank.bank[7][2]); // For testing
     this.p.markPuzzle();
     this.p = NakedCandidates.nakedQuad(this.grid.puzzle);
+  }
+
+  runXWing(): void{
+    //this.p = new Puzzle(PuzzleBank.bank[7][3]); // For testing row
+    //this.p = new Puzzle(PuzzleBank.bank[7][4]); // For testing col
+    this.p.markPuzzle();
+    this.p = XWing.xWing(this.p);
   }
 
   updateConsidered(n: number){
