@@ -260,6 +260,7 @@ export class Puzzle {
    */
   markPuzzle(): void{
     if(!this.marked){
+      console.log("Making pencil marks...");
       for(let r = 0; r < this.grid.length; r++){
         for(let c = 0; c < this.grid.length; c++){
           if(this.grid[r][c].value === 0){

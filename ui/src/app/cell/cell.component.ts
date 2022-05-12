@@ -7,15 +7,22 @@ import { Cell } from '../classes/cell';
   styleUrls: ['./cell.component.scss']
 })
 export class CellComponent implements OnInit {
-  @Input() cell!: Cell;
-  @Input() row!: number;
-  @Input() col!: number;
-  @Input() custom: boolean = false;
-
+  // ================================================================================= VARIABLES
+  // ----------------------------------------------------------- Component objects
+  @Input() cell!:   Cell;
+  @Input() row!:    number;
+  @Input() col!:    number;
+  // ----------------------------------------------------------- Controls user input
+  error:            boolean = false;
+  @Input() custom:  boolean = false;
   @Output() cellChange: EventEmitter<number> = new EventEmitter();
 
-  error: boolean = false;
+  // ================================================================================= METHODS
 
+  /**
+   * Sets the value of this cell as n
+   * @param n [number] New cell value
+   */
   setCell(n: number){
     if(n >= 1 && n <= 9){
       this.error = false;
@@ -29,7 +36,6 @@ export class CellComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

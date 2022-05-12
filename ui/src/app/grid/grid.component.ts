@@ -8,27 +8,38 @@ import { SingleBlank } from '../techniques/single-blank';
   styleUrls: ['./grid.component.scss']
 })
 export class GridComponent implements OnInit {
+  // ================================================================================= VARIABLES
+  // ----------------------------------------------------------- Component objects
   @Input() puzzle!: Puzzle;
-  r_current!: number;
-  c_current!: number;
-  r_backup!: number;
-  c_backup!: number;
+  // ----------------------------------------------------------- Cell tracking
+  r_current!:   number;
+  c_current!:   number;
+  r_backup!:    number;
+  c_backup!:    number;
+  // ----------------------------------------------------------- Algo tempo
+  tempo:        number =  50;
+  // ----------------------------------------------------------- Play/pause
+  algo_play:    boolean = false;
+  // ----------------------------------------------------------- Custom puzzle on/off
+  user_puzzle:  boolean = false;
 
-  tempo: number = 50;
-
-  algo_play: boolean = true;
-  user_puzzle: boolean = false;
-
+  // ----------------------------------------------------------- Stats
   @Output() considered: EventEmitter<number> = new EventEmitter();
-  @Output() guess: EventEmitter<number> = new EventEmitter();
-  @Output() mistake: EventEmitter<number> = new EventEmitter();
-  @Output() new_time: EventEmitter<number> = new EventEmitter();
+  @Output() guess:      EventEmitter<number> = new EventEmitter();
+  @Output() mistake:    EventEmitter<number> = new EventEmitter();
+  @Output() new_time:   EventEmitter<number> = new EventEmitter();
 
+  // ================================================================================= METHODS
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
+  /**
+   * Controls 'current' styling rule for cells
+   * @param r [number] Row number
+   * @param c [number] Column number
+   * @returns [boolean] True if current, False otherwise
+   */
   isCurrent(r: number, c: number): boolean{
     return(
       this.r_current === r &&
@@ -36,11 +47,7 @@ export class GridComponent implements OnInit {
     );
   }
 
-  //==============================================================
-  // Algorithms
-  //==============================================================
-
-  // ------------------------------------------------------------- BACKTRACK
+  // ------------------------------------------------------------- Algorithms
   /**
    * Runs brute force backtrack algorithm on puzzle
    * @returns [boolean] True at completion, False at failure
@@ -77,7 +84,6 @@ export class GridComponent implements OnInit {
     return true;
   }
 
-  // ------------------------------------------------------------- ENHANCED
   /**
    * Runs enhanced backtrack algorithm on puzzle
    * @returns [boolean] True at completion, False at failure
@@ -115,7 +121,6 @@ export class GridComponent implements OnInit {
     return true;
   }
 
-  // ------------------------------------------------------------- HUMAN
   /**
    * Runs human backtrack algorithm on puzzle
    * @returns [boolean] True at completion, False at failure
@@ -211,38 +216,50 @@ export class GridComponent implements OnInit {
       return true;
   }
 
-  //==============================================================
-  // Setters
-  //==============================================================
-
+  // ------------------------------------------------------------- Speed control
+  /**
+   * Sets the algorithm tempo value
+   * @param n 
+   */
   setTempo(n: number): void{
     this.tempo = n;
   }
 
-  //==============================================================
-  // Delay
-  //==============================================================
-
+  /**
+   * Provides pseudo-sleep function
+   * @param t [number] Milliseconds to wait
+   * @returns [Promise] Pseudo-sleep object
+   */
   delay(t: number): Promise<void>{
     return new Promise((resolve) => setTimeout(() => resolve(), t));
   }
 
-  //==============================================================
-  // Controls
-  //==============================================================
-
+  
+  // ------------------------------------------------------------- Controls
+  /**
+   * Turns algorithm playability ON
+   */
   play(): void{
     this.algo_play = true;
   }
 
+  /**
+   * Turns algorithm playability OFF
+   */
   pause(): void{
     this.algo_play = false;
   }
 
+  /**
+   * Turns user input ON
+   */
   customOn(): void{
     this.user_puzzle = true;
   }
 
+  /**
+   * Turns user input OFF
+   */
   customOff(): void{
     this.user_puzzle = false;
   }
