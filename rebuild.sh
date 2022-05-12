@@ -2,6 +2,7 @@
 
 echo "Pulling from master..."
 cd "/home/theokoles/Projects/Custom Apps/Dr-Sudoku" & wait
+echo "PWD: $(pwd)"
 
 git pull origin master & wait
 
@@ -13,11 +14,13 @@ ng build --output-path ../docs --base-href /Dr-Sudoku/ & wait
 
 echo "Copying index.html and renaming to 404.html..."
 cd "/home/theokoles/Projects/Custom Apps/Dr-Sudoku/docs" & wait
+echo "PWD: $(pwd)"
 
 cp index.html 404.html & wait
 
 echo "Pushing to repo..."
 cd "/home/theokoles/Projects/Custom Apps/Dr-Sudoku" & wait
+echo "PWD: $(pwd)"
 
 git add . & wait
 
