@@ -9,9 +9,13 @@ div.outer{
   flex-direction: column;
   padding: .1%;
 
+  @media only screen and (max-width: 768px){
+    padding-left: .5%;
+  }
+
   div.row{
     width: auto;
-    height: 5em;
+    height: auto;
     display: flex;
     flex-direction: row;
     padding: .1%;
@@ -21,6 +25,11 @@ div.outer{
       height: 5em;
       outline: solid .1em $silver;
       padding: .1%;
+
+      @media only screen and (max-width: 768px){
+        width: 2.2em;
+        height: 2.2em;
+      }
 
       &.current{
         background-color: rgba($red, .25);
