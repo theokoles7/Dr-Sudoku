@@ -17,11 +17,13 @@ div.backdrop{
 }
 
 div.outer{
+  margin-top: 5%;
   height: 100%;
   width: 100%;
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   justify-content: center;
+  
 
   div.left{
     height: 100%;

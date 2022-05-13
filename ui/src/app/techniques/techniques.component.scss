@@ -1,7 +1,6 @@
 @import "../../styles.scss";
 
 div.panel#panel{
-  margin-top: 14%;
   height: 48em;
   width: 16em;
   background-color: $black;
@@ -143,6 +142,7 @@ div.panel#panel{
     font-size: 1em;
 
     a{
+        color: $silver;
 
       i{
         vertical-align: middle;
