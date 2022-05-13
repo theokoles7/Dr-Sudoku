@@ -90,6 +90,14 @@ div.panel#panel{
           cursor: pointer;
           -webkit-appearance: none;
         }
+
+        &::-webkit-slider-thumb{
+          -webkit-appearance: none;
+          background: $black;
+          width: 1.3em;
+          height: 1.3em;
+          outline: solid .1em $silver;
+        }
   
         &::-moz-range-track, &::-webkit-slider-runnable-track{
           background-image: linear-gradient(
@@ -99,6 +107,12 @@ div.panel#panel{
           height: 100%;
           width: 100%;
           -webkit-appearance: none;
+        }
+
+        &::-webkit-slider-runnable-track{
+          background-image: linear-gradient(
+            to right, rgba($green, .5), rgba($yellow, .5), rgba($red, .5));
+          outline: solid .1em $silver;
         }
       }
   
