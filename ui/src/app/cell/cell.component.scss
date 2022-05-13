@@ -11,6 +11,10 @@ input{
   background-color: transparent;
   font-family: Tech;
   color: $silver;
+
+  @media only screen and (max-width: 768px){
+    font-size: 1em;
+  }
   
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button{
@@ -64,6 +68,10 @@ div.pencilmarks{
         font-family: Tech;
         color: $silver;
         margin: 0;
+
+        @media only screen and (max-width: 768px){
+          font-size: .5em;
+        }
       }
     }
   }
