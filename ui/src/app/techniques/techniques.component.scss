@@ -37,6 +37,8 @@ div.panel#panel{
       @media only screen and (max-width: 768px){
         justify-content:flex-start;
         font-size: .75em;
+        margin: 0;
+        width: 100%;
       }
     }
 
@@ -88,6 +90,7 @@ div.panel#panel{
         font-size: .75em;
         width: 90%;
         clip-path: none;
+        margin-top: .2%;
       }
   
       &:hover{

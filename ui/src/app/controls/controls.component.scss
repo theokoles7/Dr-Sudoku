@@ -37,6 +37,8 @@ div.panel#panel{
       @media only screen and (max-width: 768px){
         justify-content:flex-start;
         font-size: .75em;
+        margin: 0;
+        width: 100%;
       }
     }
   
@@ -56,6 +58,7 @@ div.panel#panel{
         font-size: .75em;
         width: 90%;
         clip-path: none;
+        margin-top: .2%;
       }
   
       &:hover{
@@ -73,6 +76,10 @@ div.panel#panel{
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+
+      @media only screen and (max-width: 768px){
+        margin-bottom: .5em;
+      }
 
       button.algo-control{
         margin: 0;
@@ -139,6 +146,11 @@ div.panel#panel{
           background-image: linear-gradient(
             to right, rgba($green, .5), rgba($yellow, .5), rgba($red, .5));
           outline: solid .1em $silver;
+        }
+
+        @media only screen and (max-width: 768px){
+          font-size: .75em;
+          margin-top: 0;
         }
       }
   
