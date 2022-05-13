@@ -9,10 +9,21 @@ div.panel#panel{
   justify-content: space-evenly;
   border: solid .1em $silver;
 
+  @media only screen and (max-width: 768px){
+    min-width: 100%;
+    height: auto;
+    flex-direction: row;
+  }
+
   div.section{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+
+    @media only screen and (max-width: 768px){
+      justify-content:flex-start;
+      width: 50%;
+    }
 
     h1.header{
       width: 90%;
@@ -22,6 +33,11 @@ div.panel#panel{
       border-bottom: solid .1em $silver;
       margin-right: auto;
       margin-left: auto;
+
+      @media only screen and (max-width: 768px){
+        justify-content:flex-start;
+        font-size: .75em;
+      }
     }
 
     h3.stat{
@@ -33,6 +49,10 @@ div.panel#panel{
       color: $silver;
       margin-right: auto;
       margin-left: auto;
+
+      @media only screen and (max-width: 768px){
+        font-size: .75em;
+      }
     }
 
     div.timer{
@@ -46,6 +66,10 @@ div.panel#panel{
       background-color: rgba($blue, .25);
       border: solid .01em $blue;
       margin-top: .5em;
+
+      @media only screen and (max-width: 768px){
+        font-size: .75em;
+      }
     }
   
     button{
@@ -59,6 +83,12 @@ div.panel#panel{
       outline: solid .1em $silver;
       color: $silver;
       font-family: Tech;
+
+      @media only screen and (max-width: 768px){
+        font-size: .75em;
+        width: 90%;
+        clip-path: none;
+      }
   
       &:hover{
         background-color: $lite-gray;
@@ -73,6 +103,10 @@ div.panel#panel{
     color: $silver;
     text-align: center;
     font-size: 1em;
+
+    @media only screen and (max-width: 768px){
+      display: none;
+    }
 
     a{
         color: $silver;
