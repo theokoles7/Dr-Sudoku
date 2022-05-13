@@ -23,6 +23,12 @@ div.outer{
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
+
+  @media only screen and (max-width: 768px){
+    flex-direction: column;
+    margin-top: 1%;
+    display:flex;
+  }
   
 
   div.left{
@@ -31,6 +37,12 @@ div.outer{
     display: flex;
     justify-content: right;
     margin-right: 1em;
+
+    @media only screen and (max-width: 768px){
+      justify-content: center;
+      width: 100%;
+      margin-right: 0;
+    }
   }
 
   div.middle{
@@ -39,13 +51,23 @@ div.outer{
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @media only screen and (max-width: 768px){
+      justify-content: center;
+      margin-right: 0;
+    }
   }
 
   div.right{
     height: 100%;
     width: 15%;
     display: flex;
-    justify-content: left;
     margin-left: 1em;
+
+    @media only screen and (max-width: 768px){
+      justify-content: center;
+      width: 100%;
+      margin-left: 0;
+    }
   }
 }

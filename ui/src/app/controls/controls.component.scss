@@ -9,6 +9,11 @@ div.panel#panel{
   justify-content: space-evenly;
   border: solid .1em $silver;
 
+  @media only screen and (max-width: 768px){
+    width: 100%;
+    height: auto;
+  }
+
   div.section{
     display: flex;
     flex-direction: column;
