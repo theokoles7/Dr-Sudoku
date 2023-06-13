@@ -1,0 +1,15 @@
+<div class="grid-frame">
+
+    <div *ngFor="let row of puzzle; let r = index" class="row r{{r}}">
+
+        <div *ngFor="let cell of row; let c = index" class="cell c{{c}}" title="{{r + 1}}x{{c + 1}}">
+
+            <app-cell
+                [value]="cell">
+            </app-cell>
+            
+        </div>
+
+    </div>
+
+</div>

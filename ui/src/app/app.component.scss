@@ -1,0 +1,158 @@
+@import "../styles.scss";
+
+div.frame{
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    div.wrapper{
+        outline: solid 1px $dark4;
+        border-radius: .5em;
+
+        transition: all 0.5s ease-in-out;
+
+        &.lite{
+            outline: solid 1px $lite4;
+        }
+
+        div.header{
+            border-bottom: solid 1px $dark4;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            &.lite{
+                border-bottom: solid 1px $lite4;
+            }
+
+            .header-item{
+                font-family: primary;
+                color: $dark2;
+                margin: 0 .2em;
+                text-align: left;
+
+                transition: all 0.5s ease-in-out;
+
+                &:hover{
+                    cursor: pointer;
+                    color: $dark1;
+                    text-shadow: 0 0 10px $dark3;
+
+                    &.lite{
+                        cursor: pointer;
+                        color: $lite2;
+                        text-shadow: none;
+                    } 
+                }
+
+                &.lite{
+                    color: $lite3;
+                }
+            }
+
+            button.theme-btn{
+                display: flex;
+                align-items: center;
+
+                background-color: transparent;
+                border: none;
+
+                transition: all 0.5s ease-in-out;
+                
+                &:hover{
+                    cursor: pointer;
+                }
+
+                i{
+                    margin: .1em;
+                    width: 1em;
+                    height: 1em;
+                    color: $dark2;
+                    font-size: 1.25em;
+
+                    transition: all 0.5s ease-in-out;
+
+                    &.lite{
+                        color: $lite3;
+                    }
+
+                    &:hover{
+                        color: $dark1;
+                        text-shadow: 0 0 10px $dark3;
+
+                        &.lite{
+                            color: $lite1;
+                            text-shadow: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        div.footer{
+            border-top: solid 1px $dark4;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            &.lite{
+                border-top: solid 1px $lite4;
+            }
+
+            .footer-item{
+                font-family: secondary;
+                font-size: .75em;
+                color: $dark2;
+                margin: 0 .5em;
+
+                transition: all 0.5s ease-in-out;
+
+                &.lite{
+                    color: $lite3;
+                }
+
+                a{
+                    color: $dark2;
+
+                    transition: all 0.5s ease-in-out;
+
+                    i{font-size: 1.2em;}
+    
+                    &:hover{
+                        cursor: pointer;
+                        color: $dark1;
+                        text-shadow: 0 0 10px $dark3;
+                    }
+
+                    &.lite{
+                        color: $lite3; 
+    
+                        &:hover{
+                            cursor: pointer;
+                            color: $lite2;
+                            text-shadow: none;
+                        }
+                    } 
+                }
+            }
+
+            h2#license:hover{
+                cursor: pointer;
+                color: $dark1;
+                text-shadow: 0 0 10px $dark3;
+
+                &.lite{
+                    cursor: pointer;
+                    color: $lite2;
+                    text-shadow: none;
+                } 
+            }
+        }
+    }
+}

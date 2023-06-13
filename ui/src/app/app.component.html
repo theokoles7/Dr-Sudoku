@@ -1,1 +1,48 @@
-<router-outlet></router-outlet>
+<div class="frame">
+
+    <div class="wrapper {{getTheme()}}" id="wrapper">
+
+        <div class="header {{getTheme()}}" id="header">
+
+            <h1 class="header-item {{getTheme()}}" id="name" routerLink="/">Dr. Sudoku</h1>
+
+            <button *ngIf="getTheme() == 'lite'"
+                type="button" 
+                class="theme-btn {{getTheme()}}" 
+                id="lite" title="Switch to dark theme" 
+                (click)="setTheme('dark')">
+                <i class="bi bi-lightbulb-fill {{getTheme()}}"></i>
+            </button>
+
+            <button *ngIf="getTheme() == 'dark'"
+                type="button" 
+                class="theme-btn {{getTheme()}}" 
+                id="dark" title="Switch to light theme" 
+                (click)="setTheme('lite')">
+                <i class="bi bi-lightbulb {{getTheme()}}"></i>
+            </button>
+
+        </div>
+        
+        <router-outlet></router-outlet>
+
+        <div class="footer {{getTheme()}}" id="footer">
+
+            <h2 class="footer-item {{getTheme()}}" id="license" title="Open license" routerLink="/license">
+                Copyright © 2023 Gabriel Trahan
+            </h2>
+
+            <h2 class="footer-item {{getTheme()}}" id="version">v2.0</h2>
+
+            <h2 class="footer-item {{getTheme()}}" id="connect">
+                Fork me:
+                <a class="{{getTheme()}}" href="https://github.com/theokoles7/Dr-Sudoku">
+                    <i class="bi bi-github {{getTheme()}}"></i>
+                </a>
+            </h2>
+
+        </div>
+
+    </div>
+
+</div>

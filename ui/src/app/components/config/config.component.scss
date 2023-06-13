@@ -1,0 +1,97 @@
+@import "../../../styles.scss";
+
+div.config-frame{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    padding: 1em;
+
+    div.section{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-evenly;
+
+        width: 100%;
+
+        h1.section-title{
+            font-family: primary;
+            font-size: 1em;
+            color: $dark4;
+
+            transition: all 0.5s ease-in-out;
+
+            &.lite{
+                color: $lite4;
+            }
+        }
+
+        button{
+            font-family: secondary;
+            color: $dark2;
+
+            border: none;
+            background-color: transparent;
+
+            transition: all 0.5s ease-in-out;
+
+            &:hover{
+                cursor: pointer;
+                color: $dark3;
+            }
+
+            &.lite{
+                color: $lite3;
+
+                &:hover{
+                    color: $lite2;
+                }
+            }
+
+            i{
+                transition: all 0.5s ease-in-out;
+            }
+        }
+
+        div.statistic{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0;
+            width: 100%;
+
+            color: $dark2;
+            &.lite{
+                color: $lite3;
+            }
+
+            h2.stat-key{
+                transition: all 0.5s ease-in-out;
+                font-family: secondary;
+                font-weight: lighter;
+                font-size: 1em;
+
+                width: 50%;
+                text-align: left;
+
+                margin: 0;
+            }
+
+            h2.stat-val{
+                transition: all 0.5s ease-in-out;
+                font-family: lcd;
+                font-size: 1.25em;
+
+                width: 50%;
+                text-align: right;
+
+                margin: 0;
+            }
+        }
+
+    }
+}

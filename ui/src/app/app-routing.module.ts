@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LicenseComponent } from './license/license.component';
-import { MainComponent } from './main/main.component';
+import { ErrorComponent } from './pages/error/error.component';
+import { LicenseComponent } from './pages/license/license.component';
+import { PuzzleComponent } from './pages/puzzle/puzzle.component';
 
 const routes: Routes = [
-  {path: '', component: MainComponent},
-  {path: 'license', component: LicenseComponent}
+  {path: 'puzzle', component: PuzzleComponent},
+  {path: 'license', component: LicenseComponent},
+  {path: '', redirectTo: 'puzzle', pathMatch: 'full'},
+  {path: '**', component: ErrorComponent}
 ];
 
 @NgModule({

@@ -1,0 +1,8 @@
+@import "../../../styles.scss";
+
+div.puzzle-frame{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
