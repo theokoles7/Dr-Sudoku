@@ -12,6 +12,5 @@ export class ThemeService {
   getTheme():string{return this.theme;}
 
   setTheme(theme: string):void{
-    console.log("Setting theme to " + theme);
     this.theme = theme;}
 }

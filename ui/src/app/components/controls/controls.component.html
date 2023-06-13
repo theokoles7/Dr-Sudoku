@@ -1,52 +1,53 @@
 <div class="controls-frame">
 
-        <button 
-            class="ctrl-btn {{themeService.getTheme()}}" 
-            type="button" 
-            id="new-btn" 
-            title="New puzzle">
-            <i class="bi bi-plus-square {{themeService.getTheme()}}"></i>
-        </button>
+    <button 
+        class="ctrl-btn {{themeService.getTheme()}}" 
+        type="button" 
+        id="pencil-marks" 
+        title="Generate pencil marks"
+        (click)="mark()">
+        <i class="bi bi-123 {{themeService.getTheme()}}"></i>
+    </button>
 
-        <button 
-            class="ctrl-btn {{themeService.getTheme()}}" 
-            type="button" 
-            id="clear-btn" 
-            title="Clear puzzle">
-            <i class="bi bi-x-square {{themeService.getTheme()}}"></i>
-        </button>
+    <button 
+        class="ctrl-btn {{themeService.getTheme()}}" 
+        type="button" 
+        id="reset-btn" 
+        title="Reset">
+        <i class="bi bi-arrow-clockwise {{themeService.getTheme()}}"></i>
+    </button>
 
-        <button 
-            class="ctrl-btn {{themeService.getTheme()}}" 
-            type="button" 
-            id="verify-btn" 
-            title="Verify solution">
-            <i class="bi bi-check-square {{themeService.getTheme()}}"></i>
-        </button>
+    <button 
+        class="ctrl-btn {{themeService.getTheme()}}" 
+        type="button" 
+        id="edit-btn" 
+        title="Edit">
+        <i class="bi bi-pencil-square {{themeService.getTheme()}}"></i>
+    </button>
 
-        <button 
-            class="ctrl-btn {{themeService.getTheme()}}" 
-            type="button" 
-            id="edit-btn" 
-            title="Edit">
-            <i class="bi bi-pencil-square {{themeService.getTheme()}}"></i>
-        </button>
+    <button 
+        class="ctrl-btn {{themeService.getTheme()}}" 
+        type="button" 
+        id="new-btn" 
+        title="New puzzle">
+        <i class="bi bi-plus-square {{themeService.getTheme()}}"></i>
+    </button>
 
-        <button 
-            class="ctrl-btn {{themeService.getTheme()}}" 
-            type="button" 
-            id="reset-btn" 
-            title="Reset">
-            <i class="bi bi-arrow-clockwise {{themeService.getTheme()}}"></i>
-        </button>
+    <button 
+        class="ctrl-btn {{themeService.getTheme()}}" 
+        type="button" 
+        id="clear-btn" 
+        title="Clear puzzle">
+        <i class="bi bi-x-square {{themeService.getTheme()}}"></i>
+    </button>
 
-        <button 
-            class="ctrl-btn {{themeService.getTheme()}}" 
-            type="button" 
-            id="pencil-marks" 
-            title="Generate pencil marks">
-            <i class="bi bi-123 {{themeService.getTheme()}}"></i>
-        </button>
+    <button 
+        class="ctrl-btn {{themeService.getTheme()}}" 
+        type="button" 
+        id="verify-btn" 
+        title="Verify solution">
+        <i class="bi bi-check-square {{themeService.getTheme()}}"></i>
+    </button>
 
     <input type="range" id="speed" title="Speed" class="vertical {{themeService.getTheme()}}" orient="vertical"/>
 

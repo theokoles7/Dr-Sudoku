@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Puzzle } from 'src/app/classes/puzzle';
 import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { ThemeService } from 'src/app/services/theme.service';
   styleUrls: ['./grid.component.scss']
 })
 export class GridComponent {
-  @Input() puzzle!:any;
+  @Input() puzzle!: Puzzle;
 
   constructor(public themeService: ThemeService){}
 }

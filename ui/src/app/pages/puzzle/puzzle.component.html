@@ -1,6 +1,8 @@
 <div class="puzzle-frame {{themeService.getTheme()}}">
 
-    <app-controls></app-controls>
+    <app-controls
+        (pencilMarks)="mark()">
+    </app-controls>
 
     <div class="grid {{themeService.getTheme()}}">
 

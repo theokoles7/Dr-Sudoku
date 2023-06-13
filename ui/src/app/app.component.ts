@@ -7,7 +7,7 @@ import { ThemeService } from './services/theme.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ui';
+  title = 'Dr. Sudoku';
 
   constructor(private elementRef: ElementRef, private themeService: ThemeService){}
 
