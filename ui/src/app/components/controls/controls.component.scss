@@ -20,10 +20,9 @@ div.controls-frame{
             font-family: secondary;
             white-space: nowrap;
             font-size: 1.1em;
-            color: $dark3;
 
             padding: .2em;
-            outline: solid 1px $dark4;
+            outline: solid 1px;
             border-radius: .2em;
 
             opacity: 0;
@@ -31,14 +30,18 @@ div.controls-frame{
 
             transition: all 0.5s ease;
 
-            &.lite{
-                color: $dark4;
+            &.dark{
+                color: $dark3;
                 outline-color: $dark4;
+            }
+
+            &.lite{
+                color: $lite4;
+                outline-color: $lite4;
             }
         }
 
         &:hover{
-            transition-delay: 0.5s;
             span.tooltip{
                 opacity: 1;
                 transition: all 0.5s ease-in-out;
