@@ -1,15 +1,62 @@
 @import "../../../styles.scss";
 
-div.cell-value{
-    font-family: lcd;
-    font-size: 3em;
-
-    color: $dark1;
+div.edit-cell{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     transition: all 0.5s ease-in-out;
 
-    &.lite{
-        color: $lite4;
+    input.cell-input[type=number]{
+        appearance: none;
+        border: none;
+        -moz-appearance: textfield;
+        background-color: transparent;
+
+        transition: all 0.5s ease-in-out;
+
+        font-family: lcd;
+        font-size: 3em;
+        text-align: center;
+
+        width: 2.9vw;
+        height: 2.9vw;
+
+        &.dark{
+            color: $dark1;
+
+            &.editMode{
+                background-color: rgba($dark2, 0.1);
+    
+                &:hover{
+                    background-color: rgba($dark2, 0.25);
+                }
+            }
+
+            &.error{
+                color: $darkF;
+            }
+        }
+
+        &.lite{
+            color: $lite4;
+
+            &.editMode{
+                background-color: rgba($lite2, 0.1);
+    
+                &:hover{
+                    background-color: rgba($lite2, 0.25);
+                }
+            }
+
+            &.error{
+                color: $liteF;
+            }
+        }
+
+        &:focus{
+            outline: none;
+        }
     }
 }
 

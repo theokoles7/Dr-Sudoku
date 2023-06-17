@@ -6,6 +6,7 @@ import { ErrorComponent } from './error/error.component';
 import { PuzzleComponent } from './puzzle/puzzle.component';
 import { LicenseComponent } from './license/license.component';
 import { ComponentsModule } from '../components/components.module';
+import { HelpComponent } from './help/help.component';
 
 
 
@@ -13,7 +14,8 @@ import { ComponentsModule } from '../components/components.module';
   declarations: [
     ErrorComponent,
     PuzzleComponent,
-    LicenseComponent
+    LicenseComponent,
+    HelpComponent
   ],
   imports: [
     AppRoutingModule,

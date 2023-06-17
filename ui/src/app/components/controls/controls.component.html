@@ -4,76 +4,94 @@
         class="ctrl-btn {{themeService.getTheme()}}" 
         type="button" 
         id="pencil-marks" 
-        title="Generate pencil marks"
-        (click)="mark()">
+        (click)="pencilMarks.emit()">
+        <span class="tooltip">Toggle pencil marks</span>
         <i class="bi bi-123 {{themeService.getTheme()}}"></i>
     </button>
 
     <button 
         class="ctrl-btn {{themeService.getTheme()}}" 
         type="button" 
-        id="reset-btn" 
-        title="Reset">
+        id="reset-btn"
+        (click)="resetPuzzle.emit()">
+        <span class="tooltip">Reset</span>
         <i class="bi bi-arrow-clockwise {{themeService.getTheme()}}"></i>
     </button>
 
     <button 
         class="ctrl-btn {{themeService.getTheme()}}" 
         type="button" 
-        id="edit-btn" 
-        title="Edit">
+        id="edit-btn"
+        (click)="editPuzzle.emit()">
+        <span class="tooltip">Edit</span>
         <i class="bi bi-pencil-square {{themeService.getTheme()}}"></i>
     </button>
 
     <button 
         class="ctrl-btn {{themeService.getTheme()}}" 
         type="button" 
-        id="new-btn" 
-        title="New puzzle">
+        id="new-btn"
+        (click)="newPuzzle.emit()">
+        <span class="tooltip">New puzzle</span>
         <i class="bi bi-plus-square {{themeService.getTheme()}}"></i>
     </button>
 
     <button 
         class="ctrl-btn {{themeService.getTheme()}}" 
         type="button" 
-        id="clear-btn" 
-        title="Clear puzzle">
+        id="clear-btn"
+        (click)="clearPuzzle.emit()">
+        <span class="tooltip">Clear</span>
         <i class="bi bi-x-square {{themeService.getTheme()}}"></i>
     </button>
 
     <button 
         class="ctrl-btn {{themeService.getTheme()}}" 
         type="button" 
-        id="verify-btn" 
-        title="Verify solution">
+        id="verify-btn"
+        (click)="verifyPuzzle.emit()">
+        <span class="tooltip">Verify</span>
         <i class="bi bi-check-square {{themeService.getTheme()}}"></i>
     </button>
 
-    <input type="range" id="speed" title="Speed" class="vertical {{themeService.getTheme()}}" orient="vertical"/>
-
-    <i class="bi bi-speedometer {{themeService.getTheme()}}"></i>
+    <div class="speed-container">
+        <span class="tooltip">Speed</span>
+        <input 
+            type="range" 
+            id="speed" 
+            class="{{themeService.getTheme()}}" 
+            orient="vertical"
+            min="0"
+            max="100"
+            step="10"
+            (change)="adjustSpeed.emit($any($event.target).value)"
+        />
+        <i class="bi bi-speedometer {{themeService.getTheme()}}"></i>
+    </div>
 
     <button 
         class="ctrl-btn {{themeService.getTheme()}}" 
         type="button" 
-        id="play-btn" 
-        title="Play">
+        id="play-btn"
+        (click)="playAlgo.emit()">
+        <span class="tooltip">Play</span>
         <i class="bi bi-play-btn {{themeService.getTheme()}}"></i>
     </button>
 
     <button 
         class="ctrl-btn {{themeService.getTheme()}}" 
         type="button" 
-        id="pause-btn" 
-        title="Pause">
+        id="pause-btn"
+        (click)="pauseAlgo.emit()">
+        <span class="tooltip">Pause</span>
         <i class="bi bi-pause-btn {{themeService.getTheme()}}"></i>
     </button>
 
     <button 
         class="ctrl-btn {{themeService.getTheme()}}" 
         type="button" 
-        id="help-btn" 
-        title="Help">
+        id="help-btn">
+        <span class="tooltip">Help</span>
         <i class="bi bi-question-square {{themeService.getTheme()}}"></i>
     </button>
 

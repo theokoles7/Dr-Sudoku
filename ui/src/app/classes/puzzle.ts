@@ -1,15 +1,33 @@
 import { Cell } from "./cell";
 
 export class Puzzle {
-    public  grid:    Array<Array<Cell>> =    [[], [], [], [], [], [], [], [], []];
+    public  grid:   Array<Array<Cell>> =    [[], [], [], [], [], [], [], [], []];
+    private orig!:  Array<Array<number>>;
     private marked: boolean =               false;
 
     constructor(g: Array<Array<number>>){
+        this.orig = g;
         for(let r = 0; r < g.length; r++){
             for(let c = 0; c < g.length; c++){
                 this.grid[r][c] = new Cell(g[r][c]);
             }
         }
+        this.markPuzzle();
+    }
+
+    //==============================================================
+    // Cells
+    //==============================================================
+    /**
+     * Clear all cell values.
+     */
+    clearPuzzle():void{
+        for(let row of this.grid){
+            for(let cell of row){
+                cell.clear()
+            }
+        }
+        this.markPuzzle();
     }
 
     //==============================================================

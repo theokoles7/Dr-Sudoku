@@ -7,12 +7,43 @@ div.controls-frame{
     margin: 0 auto;
 
     button.ctrl-btn{
+        position: relative;
         border: none;
         background-color: transparent;
 
         margin: .2em .2em; 
 
         transition: all 0.5s ease-in-out;
+
+        span.tooltip{
+            position: absolute;
+            font-family: secondary;
+            white-space: nowrap;
+            font-size: 1.1em;
+            color: $dark3;
+
+            padding: .2em;
+            outline: solid 1px $dark4;
+            border-radius: .2em;
+
+            opacity: 0;
+            right: calc(100% + 1vw);
+
+            transition: all 0.5s ease;
+
+            &.lite{
+                color: $dark4;
+                outline-color: $dark4;
+            }
+        }
+
+        &:hover{
+            transition-delay: 0.5s;
+            span.tooltip{
+                opacity: 1;
+                transition: all 0.5s ease-in-out;
+            }
+        }
     }
 
     i{
@@ -49,7 +80,43 @@ div.controls-frame{
         }
     }
 
-    input[type="range"].vertical{
+    div.speed-container{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        span.tooltip{
+            position: absolute;
+            font-family: secondary;
+            white-space: nowrap;
+            font-size: 1.1em;
+            color: $dark3;
+
+            padding: .2em;
+            outline: solid 1px $dark4;
+            border-radius: .2em;
+
+            opacity: 0;
+            right: calc(100% + 1vw);
+
+            transition: all 0.5s ease;
+
+            &.lite{
+                color: $dark4;
+                outline-color: $dark4;
+            }
+        }
+
+        &:hover{
+            transition-delay: 0.5s;
+            span.tooltip{
+                opacity: 1;
+                transition: all 0.5s ease-in-out;
+            }
+        }
+    }
+
+    input[type="range"]{
         background-color: transparent;
 
         transition: all 0.5s ease-in-out;

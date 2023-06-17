@@ -1,11 +1,35 @@
 export class Cell {
-    value!:         number;
-    solved:         boolean =       false;
-    highlight:      boolean =       false;
-    pencilMarks:    Array<number> = [];
+    value!:             number;
+    editModeActive:     boolean =       false;
+    pencilMarksVisible: boolean =       false;
+    error:              boolean =       false;
+    solved:             boolean =       false;
+    highlight:          boolean =       false;
+    pencilMarks:        Array<number> = [];
 
     constructor(val: number){
         this.value = val;
+    }
+
+    //==============================================================
+    // Value
+    //==============================================================
+    /**
+     * Clear cell value.
+     */
+    clear():void{
+        this.value = 0;
+    }
+
+    /**
+     * Set cell value.
+     * @param n Number between 1 and 9 (inclusive)
+     */
+    async setValue(n: number): Promise<void>{
+        if((n < 1 || n > 9) && n){this.error = true;}
+        else{
+            this.value = n;
+        }
     }
 
     //==============================================================
@@ -21,8 +45,8 @@ export class Cell {
     }
 
     /**
-     * 
-     * @param n Indicate existence of pencil mark.
+     * Indicate if cell's pencil marks contains specific value.
+     * @param n Number being searched for
      * @returns True if cell contains pencil mark, False otherwise
      */
     has_mark(n: number): boolean{
@@ -50,12 +74,16 @@ export class Cell {
         this.highlight = false;
     }
 
+    //==============================================================
+    // AUXILIARY
+    //==============================================================
+
     /**
      * Provide pseudo-sleep function.
      * @param millis Milliseconds to wait
      * @returns Pseudo-sleep object
      */
     delay(millis: number): Promise<void>{
-        return new Promise((resolve) => setTimeout(() => resolve(), millis));
+        return new Promise(resolve => setTimeout(resolve, millis));
     }
 }

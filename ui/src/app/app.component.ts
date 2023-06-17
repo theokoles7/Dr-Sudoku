@@ -9,7 +9,7 @@ import { ThemeService } from './services/theme.service';
 export class AppComponent {
   title = 'Dr. Sudoku';
 
-  constructor(private elementRef: ElementRef, private themeService: ThemeService){}
+  constructor(private elementRef: ElementRef, public themeService: ThemeService){}
 
   ngAfterViewInit(){
     window.setTimeout((_: any) => {
@@ -18,10 +18,6 @@ export class AppComponent {
         this.setTheme(savedTheme);
       }
     });
-  }
-
-  getTheme(): string{
-    return this.themeService.getTheme();
   }
 
   setTheme(theme: string): void{

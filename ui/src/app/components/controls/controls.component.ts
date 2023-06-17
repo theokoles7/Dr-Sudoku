@@ -7,12 +7,15 @@ import { ThemeService } from 'src/app/services/theme.service';
   styleUrls: ['./controls.component.scss']
 })
 export class ControlsComponent {
-  @Output() pencilMarks: EventEmitter<void> = new EventEmitter();
+  @Output() pencilMarks:  EventEmitter<void>    = new EventEmitter();
+  @Output() resetPuzzle:  EventEmitter<void>    = new EventEmitter();
+  @Output() editPuzzle:   EventEmitter<void>    = new EventEmitter();
+  @Output() newPuzzle:    EventEmitter<void>    = new EventEmitter();
+  @Output() clearPuzzle:  EventEmitter<void>    = new EventEmitter();
+  @Output() verifyPuzzle: EventEmitter<void>    = new EventEmitter();
+  @Output() playAlgo:     EventEmitter<void>    = new EventEmitter();
+  @Output() pauseAlgo:    EventEmitter<void>    = new EventEmitter();
+  @Output() adjustSpeed:  EventEmitter<number>  = new EventEmitter();
 
   constructor(public themeService: ThemeService){}
-
-  /**
-   * Emit signal to make pencil marks for puzzle.
-   */
-  mark():void{this.pencilMarks.emit();}
 }

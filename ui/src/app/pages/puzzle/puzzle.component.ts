@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ThemeService } from '../../services/theme.service';
 import { Puzzle } from 'src/app/classes/puzzle';
+import { GridComponent } from 'src/app/components/grid/grid.component';
 
 @Component({
   selector: 'app-puzzle',
@@ -8,6 +9,8 @@ import { Puzzle } from 'src/app/classes/puzzle';
   styleUrls: ['./puzzle.component.scss']
 })
 export class PuzzleComponent {
+  @ViewChild(GridComponent) grid!: GridComponent;
+
   puzzle: Puzzle = new Puzzle([
     [0, 1, 3, 0, 0, 1, 0, 0, 6],
     [0, 0, 0, 0, 0, 0, 0, 2, 4],
@@ -21,9 +24,4 @@ export class PuzzleComponent {
   ]);
 
   constructor(public themeService: ThemeService){}
-
-  /**
-   * Make pencil marks for puzzle.
-   */
-  mark(): void{console.log("Making pencil marks.");this.puzzle.markPuzzle();}
 }

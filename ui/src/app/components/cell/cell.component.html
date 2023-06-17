@@ -1,48 +1,40 @@
 <div 
-    *ngIf="cell.value != 0"
-    class="cell-value {{themeService.getTheme()}}">
-    {{cell.value}}
+    *ngIf="!cell.pencilMarksVisible || cell.value != 0"
+    class="edit-cell {{themeService.getTheme()}}"
+    [@inOutAnimation]
+    >
+    <input 
+        type="number" 
+        [ngClass]="{'error': cell.error, 'editMode': cell.editModeActive}"
+        class="cell-input {{themeService.getTheme()}}"
+        (blur)="cell.setValue($any($event.target).value)"
+        value="{{cell.value != 0 ? cell.value: ''}}"
+        [disabled]="!cell.editModeActive"
+        [@inOutAnimation]
+    />
 </div>
 
-<div class="pencil-marks" *ngIf="cell.value == 0">
+<div 
+    *ngIf="cell.value == 0 && cell.pencilMarksVisible" 
+    class="pencil-marks" 
+    [@inOutAnimation]
+    >
 
-    <div class="pencil-mark-row">
+    <div class="pencil-mark-row" *ngFor="let r of [0, 3, 6]" [@inOutAnimation]>
 
-        <div class="pencil-mark {{themeService.getTheme()}}" *ngIf="cell.pencilMarks.includes(1)">1</div>
-        <div class="pencil-mark {{themeService.getTheme()}}" *ngIf="!cell.pencilMarks.includes(1)"></div>
-    
-        <div class="pencil-mark {{themeService.getTheme()}}" *ngIf="cell.pencilMarks.includes(2)">2</div>
-        <div class="pencil-mark {{themeService.getTheme()}}" *ngIf="!cell.pencilMarks.includes(2)"></div>
-    
-        <div class="pencil-mark {{themeService.getTheme()}}" *ngIf="cell.pencilMarks.includes(3)">3</div>
-        <div class="pencil-mark {{themeService.getTheme()}}" *ngIf="!cell.pencilMarks.includes(3)"></div>
+        <ng-container *ngFor="let c of [1, 2, 3]">
+            <div 
+                class="pencil-mark {{themeService.getTheme()}}" 
+                *ngIf="cell.pencilMarks.includes(r + c)">
+                    {{r+c}}
+            </div>
 
-    </div>
+            <div 
+                class="pencil-mark {{themeService.getTheme()}}" 
+                *ngIf="!cell.pencilMarks.includes(r + c)">
+            </div>
+        </ng-container>
 
-    <div class="pencil-mark-row">
-
-        <div class="pencil-mark {{themeService.getTheme()}}" *ngIf="cell.pencilMarks.includes(4)">4</div>
-        <div class="pencil-mark {{themeService.getTheme()}}" *ngIf="!cell.pencilMarks.includes(4)"></div>
-    
-        <div class="pencil-mark {{themeService.getTheme()}}" *ngIf="cell.pencilMarks.includes(5)">5</div>
-        <div class="pencil-mark {{themeService.getTheme()}}" *ngIf="!cell.pencilMarks.includes(5)"></div>
-    
-        <div class="pencil-mark {{themeService.getTheme()}}" *ngIf="cell.pencilMarks.includes(6)">6</div>
-        <div class="pencil-mark {{themeService.getTheme()}}" *ngIf="!cell.pencilMarks.includes(6)"></div>
-        
-    </div>
-
-    <div class="pencil-mark-row">
-
-        <div class="pencil-mark {{themeService.getTheme()}}" *ngIf="cell.pencilMarks.includes(7)">7</div>
-        <div class="pencil-mark {{themeService.getTheme()}}" *ngIf="!cell.pencilMarks.includes(7)"></div>
-    
-        <div class="pencil-mark {{themeService.getTheme()}}" *ngIf="cell.pencilMarks.includes(8)">8</div>
-        <div class="pencil-mark {{themeService.getTheme()}}" *ngIf="!cell.pencilMarks.includes(8)"></div>
-    
-        <div class="pencil-mark {{themeService.getTheme()}}" *ngIf="cell.pencilMarks.includes(9)">9</div>
-        <div class="pencil-mark {{themeService.getTheme()}}" *ngIf="!cell.pencilMarks.includes(9)"></div>
-        
     </div>
 
 </div>

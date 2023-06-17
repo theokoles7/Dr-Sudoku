@@ -1,15 +1,19 @@
 <div class="puzzle-frame {{themeService.getTheme()}}">
 
     <app-controls
-        (pencilMarks)="mark()">
+        (pencilMarks)="grid.togglePencilMarks()"
+        (resetPuzzle)="grid.resetPuzzle()"
+        (editPuzzle)="grid.toggleEditMode()"
+        (clearPuzzle)="grid.clearPuzzle()"
+    >
     </app-controls>
 
-    <div class="grid {{themeService.getTheme()}}">
+    <app-grid 
+        [puzzle]="puzzle"
+    >
+    </app-grid>
 
-        <app-grid [puzzle]="puzzle"></app-grid>
-
-    </div>
-
-    <app-config></app-config>
+    <app-config
+    ></app-config>
 
 </div>

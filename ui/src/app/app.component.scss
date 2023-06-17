@@ -55,6 +55,7 @@ div.frame{
             }
 
             button.theme-btn{
+                position: relative;
                 display: flex;
                 align-items: center;
 
@@ -62,9 +63,18 @@ div.frame{
                 border: none;
 
                 transition: all 0.5s ease-in-out;
-                
+
+                span.tooltip{
+                    left: calc(100% + 1vw);
+                }
+        
                 &:hover{
                     cursor: pointer;
+                    transition-delay: 0.5s;
+                    span.tooltip{
+                        opacity: 1;
+                        transition: all 0.5s ease-in-out;
+                    }
                 }
 
                 i{
@@ -106,6 +116,7 @@ div.frame{
             }
 
             .footer-item{
+                position: relative;
                 font-family: secondary;
                 font-size: .75em;
                 color: $dark2;
@@ -140,6 +151,17 @@ div.frame{
                         }
                     } 
                 }
+
+                span.tooltip{
+                    top: calc(100% + 1vw);
+                }
+
+                &:hover{
+                    span.tooltip{
+                        opacity: 1;
+                        transition: all 0.5s ease-in-out;
+                    }
+                }
             }
 
             h2#license:hover{
@@ -152,6 +174,27 @@ div.frame{
                     color: $lite2;
                     text-shadow: none;
                 } 
+            }
+        }
+
+        span.tooltip{
+            position: absolute;
+            font-family: secondary;
+            white-space: nowrap;
+            font-size: 1.1em;
+            color: $dark3;
+
+            padding: .2em;
+            outline: solid 1px $dark4;
+            border-radius: .2em;
+
+            opacity: 0;
+
+            transition: all 0.5s ease;
+
+            &.lite{
+                color: $dark4;
+                outline-color: $dark4;
             }
         }
     }
