@@ -7,6 +7,34 @@ div.edit-cell{
 
     transition: all 0.5s ease-in-out;
 
+    &:hover{
+        span.error-msg{
+            opacity: 1;
+            transition: all 0.5s ease-in-out;
+        }
+    }
+
+    span.error-msg{
+        position: absolute;
+        font-family: secondary;
+        white-space: nowrap;
+        font-size: 1.1em;
+        color: $dark3;
+
+        padding: .2em;
+        outline: solid 1px $dark4;
+        border-radius: .2em;
+
+        right: calc(100% + 1vw);
+
+        transition: all 0.5s ease;
+
+        &.lite{
+            color: $lite4;
+            outline-color: $lite4;
+        }
+    }
+
     input.cell-input[type=number]{
         appearance: none;
         border: none;

@@ -3,11 +3,17 @@
     class="edit-cell {{themeService.getTheme()}}"
     [@inOutAnimation]
     >
+    <span 
+        *ngIf="!cell.valueIsValid() || !parent.puzzle.cellIsValid(cell.r, cell.c)" 
+        class="error-msg {{themeService.getTheme()}}"
+        >
+        ERROR: {{cell.errorMsg}}
+    </span>
     <input 
         type="number" 
-        [ngClass]="{'error': cell.error, 'editMode': cell.editModeActive}"
+        [ngClass]="{'error': (!cell.valueIsValid() || !parent.puzzle.cellIsValid(cell.r, cell.c)), 'editMode': cell.editModeActive}"
         class="cell-input {{themeService.getTheme()}}"
-        (blur)="cell.setValue($any($event.target).value)"
+        (keyup)="cell.setValue($any($event.target).value)"
         value="{{cell.value != 0 ? cell.value: ''}}"
         [disabled]="!cell.editModeActive"
         [@inOutAnimation]

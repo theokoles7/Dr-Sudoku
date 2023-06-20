@@ -9,7 +9,7 @@ export class Puzzle {
         this.orig = g;
         for(let r = 0; r < g.length; r++){
             for(let c = 0; c < g.length; c++){
-                this.grid[r][c] = new Cell(g[r][c]);
+                this.grid[r][c] = new Cell(g[r][c], r, c);
             }
         }
         this.markPuzzle();
@@ -66,7 +66,7 @@ export class Puzzle {
         let box: Array<Cell> = [];
         for(let i = r - (r % 3); i <= (r - (r % 3)) + 2; i++){
             for(let j = c - (c % 3); j <= (c - (c % 3)) + 2; j++){
-                box.push(this.grid[r][c]);
+                box.push(this.grid[i][j]);
             }
         }
         return box;
@@ -355,5 +355,42 @@ export class Puzzle {
         return this.getBox(r, c).reduce(
             (accumulator, currentValue) => accumulator + currentValue.value, sum
         );
+    }
+
+    //==============================================================
+    // Validation
+    //==============================================================
+
+    cellIsValid(r: number, c: number): boolean{
+        if(this.grid[r][c].value == 0){return true;}
+        if(this.duplicateInRow(r, this.grid[r][c].value)){
+            console.log("Duplicate " + this.grid[r][c].value + " in row " + r)
+            this.grid[r][c].errorMsg = "Duplicate in row " + r;
+            return false;
+        }
+        if(this.duplicateInCol(c, this.grid[r][c].value)){
+            console.log("Duplicate " + this.grid[r][c].value + " in column " + c)
+            this.grid[r][c].errorMsg = "Duplicate in column " + c;
+            return false;
+        }
+        if(this.duplicateInBox(r, c, this.grid[r][c].value)){
+            console.log("Duplicate " + this.grid[r][c].value + " in box")
+            this.grid[r][c].errorMsg = "Duplicate in box";
+            return false;
+        }
+
+        return true;
+    }
+
+    duplicateInRow(r: number, n: number): boolean{
+        return this.getRow(r).filter((cell) => cell.value === n).length > 1;
+    }
+
+    duplicateInCol(c: number, n: number): boolean{
+        return this.getCol(c).filter((cell) => cell.value === n).length > 1;
+    }
+
+    duplicateInBox(r: number, c: number, n: number): boolean{
+        return this.getBox(r, c).filter((cell) => cell.value == n).length > 1;
     }
 }

@@ -5,7 +5,7 @@
         type="button" 
         id="pencil-marks" 
         (click)="pencilMarks.emit()">
-        <span class="tooltip">Toggle pencil marks</span>
+        <span class="tooltip {{themeService.getTheme()}}">Toggle pencil marks</span>
         <i class="bi bi-123 {{themeService.getTheme()}}"></i>
     </button>
 
@@ -14,7 +14,7 @@
         type="button" 
         id="reset-btn"
         (click)="resetPuzzle.emit()">
-        <span class="tooltip">Reset</span>
+        <span class="tooltip {{themeService.getTheme()}}">Reset</span>
         <i class="bi bi-arrow-clockwise {{themeService.getTheme()}}"></i>
     </button>
 
@@ -23,7 +23,7 @@
         type="button" 
         id="edit-btn"
         (click)="editPuzzle.emit()">
-        <span class="tooltip">Edit</span>
+        <span class="tooltip {{themeService.getTheme()}}">Edit</span>
         <i class="bi bi-pencil-square {{themeService.getTheme()}}"></i>
     </button>
 
@@ -32,7 +32,7 @@
         type="button" 
         id="new-btn"
         (click)="newPuzzle.emit()">
-        <span class="tooltip">New puzzle</span>
+        <span class="tooltip {{themeService.getTheme()}}">New puzzle</span>
         <i class="bi bi-plus-square {{themeService.getTheme()}}"></i>
     </button>
 
@@ -41,7 +41,7 @@
         type="button" 
         id="clear-btn"
         (click)="clearPuzzle.emit()">
-        <span class="tooltip">Clear</span>
+        <span class="tooltip {{themeService.getTheme()}}">Clear</span>
         <i class="bi bi-x-square {{themeService.getTheme()}}"></i>
     </button>
 
@@ -50,12 +50,12 @@
         type="button" 
         id="verify-btn"
         (click)="verifyPuzzle.emit()">
-        <span class="tooltip">Verify</span>
+        <span class="tooltip {{themeService.getTheme()}}">Verify</span>
         <i class="bi bi-check-square {{themeService.getTheme()}}"></i>
     </button>
 
     <div class="speed-container">
-        <span class="tooltip">Speed</span>
+        <span class="tooltip {{themeService.getTheme()}}">Speed</span>
         <input 
             type="range" 
             id="speed" 
@@ -74,7 +74,7 @@
         type="button" 
         id="play-btn"
         (click)="playAlgo.emit()">
-        <span class="tooltip">Play</span>
+        <span class="tooltip {{themeService.getTheme()}}">Play</span>
         <i class="bi bi-play-btn {{themeService.getTheme()}}"></i>
     </button>
 
@@ -83,7 +83,7 @@
         type="button" 
         id="pause-btn"
         (click)="pauseAlgo.emit()">
-        <span class="tooltip">Pause</span>
+        <span class="tooltip {{themeService.getTheme()}}">Pause</span>
         <i class="bi bi-pause-btn {{themeService.getTheme()}}"></i>
     </button>
 

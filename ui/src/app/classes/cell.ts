@@ -1,4 +1,6 @@
 export class Cell {
+    r!:                 number;
+    c!:                 number;
     value!:             number;
     editModeActive:     boolean =       false;
     pencilMarksVisible: boolean =       false;
@@ -6,9 +8,18 @@ export class Cell {
     solved:             boolean =       false;
     highlight:          boolean =       false;
     pencilMarks:        Array<number> = [];
+    errorMsg!:          string;
 
-    constructor(val: number){
+    /**
+     * 
+     * @param val Cell value
+     * @param r Cell's row
+     * @param c Cell's column
+     */
+    constructor(val: number, r: number, c: number){
         this.value = val;
+        this.r     = r;
+        this.c     = c;
     }
 
     //==============================================================
@@ -25,11 +36,20 @@ export class Cell {
      * Set cell value.
      * @param n Number between 1 and 9 (inclusive)
      */
-    async setValue(n: number): Promise<void>{
-        if((n < 1 || n > 9) && n){this.error = true;}
-        else{
-            this.value = n;
+    setValue(n: number): void{
+        this.value = n;
+    }
+
+    /**
+     * Indicate if value is valid.
+     * @returns True if valid, False otherwise
+     */
+    valueIsValid(): boolean{
+        if (this.value != 0 && (this.value < 1 || this.value > 9)){
+            this.errorMsg = "Invalid value";
+            return false;
         }
+        return true;
     }
 
     //==============================================================
